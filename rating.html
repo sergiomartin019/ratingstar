@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #notas{
+        background-color: #afa1a1;
+        
+
+    }
+    #text{
+        text-align: center;
+    }
+    #notas ul{
+        display:flex;
+        justify-content: center;
+    }
+#notas li{
+    text-align: left;
+    display:inline-block;
+    padding-left: auto;
+    padding-right: auto;
+    padding:5px;
+
+}
+#reset{
+    border-radius: 3px;
+}
+.boton{
+    margin-top: 10px;
+    margin-bottom: auto;
+    display:block;
+    text-align: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 3px;
+    box-shadow: 1px,1px,1px,5px black;
+}
+
+
+
+
+</style>
+<body>
+    <div id="notas">
+        <h3 id="text">?</h3>
+            <ul>
+                <li id="1" onmouseover="rating(1)">☆</li>
+                <li id="2" onmouseover="rating(2)">☆</li>
+                <li id="3" onmouseover="rating(3)">☆</li>
+                <li id="4" onmouseover="rating(4)">☆</li>
+                <li id="5" onmouseover="rating(5)">☆</li>
+                
+            </ul>
+            <button class="boton" onclick="confirmar()">Puntuar</button><button class="boton"onclick="reset()">↺</button>
+    </div>
+
+</body>
+<script>
+const totalrating = 5
+function rating(n){
+    
+    let i = 1;
+    while(i <= totalrating){
+        if(i <= n){
+            document.getElementById(i.toString()).innerText = "★"
+        }
+        else{
+            document.getElementById(i.toString()).innerText = "☆"
+        }
+        i++
+    }
+    document.getElementById("text").textContent = n
+}
+function reset(){
+    let i = 1;
+    while(i <= totalrating){
+        document.getElementById("text").textContent = "?"
+         document.getElementById(i.toString()).innerText = "☆"
+         i++;
+    }
+}
+
+
+
+
+</script>
+</html>
